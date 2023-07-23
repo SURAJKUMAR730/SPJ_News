@@ -48,7 +48,6 @@ const fetchData = async (category, pageSize) => {
 
 }
 // fetchData('general',5)
-
 //adding breaking news
 
 const add_breakingNews = (data) => {
