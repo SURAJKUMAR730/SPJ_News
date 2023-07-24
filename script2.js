@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const apiKey = "4d15a40e4810ffdce8efdf19804ea572";
+    const apiKey = "dbc00603fe5c55fda86488151a6d83a7";
 
     const fetchData = async (category, pageSize) => {
         const url = `https://gnews.io/api/v4/top-headlines?category=${category}&pageSize=${pageSize}&lang=en&country=IN&apikey=${apiKey}`;
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const topNews = document.querySelector('.topNews');
 
         let html = '';
-        data.forEach((element) => {
+        data.slice(0, 5).forEach((element) => {
             const title = element.title.length < 100 ? element.title : element.title.slice(0, 100) + "...";
             html += `
           <div class="news">
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         topNews.innerHTML = html;
     };
 
-    fetchData('general', 20).then(add_topNews);
+    fetchData('general', 20).then((data) => add_topNews(data.slice(0, 5)));
 
     const add_news = (category, containerId) => {
         fetchData(category, 5).then((data) => {
