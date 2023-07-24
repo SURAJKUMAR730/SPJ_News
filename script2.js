@@ -1,4 +1,11 @@
-
+let breakingimg = document.querySelector("#breakingimg");
+let breakingnews_title = document.querySelector("#breakingnews .title-news");
+let breakingnews_description = document.querySelector("#breakingnews .description")
+let topnews = document.querySelector(".topnews")
+let sportsnews = document.querySelector("#sportsnews .newsbox")
+let sandtnews = document.querySelector("#sandtnews .newsbox")
+let economynews = document.querySelector("#economynews .newsbox")
+let entertainmentnews = document.querySelector("#entertainmentnews .newsbox")
 let header = document.querySelector('.header')
 let toggleMenu = document.querySelector('.bar')
 let menu = document.querySelector('nav ul')
