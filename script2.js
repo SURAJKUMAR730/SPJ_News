@@ -6,6 +6,26 @@ let sportsNews = document.querySelector('#sportsNews .newsBox')
 let businessNews = document.querySelector('#businessNews .newsBox')
 let techNews = document.querySelector('#techNews .newsBox')
 
+let header = document.querySelector(".header")
+let bar = document.querySelector(".bar")
+let menu = document.querySelector(".nav ul")
+const toggle = (e) => {
+    bar.classList.toggle('active')
+    menu.classList.toggle('activemenu')
+}
+bar.addEventListener('click', toggle)
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.classList.add('sticky')
+    }
+    else {
+        header.classList.remove('sticky')
+    }
+})
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const apiKey = "57d10b25a1440c41b6dc04514987a8cb";
 
