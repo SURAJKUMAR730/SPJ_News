@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         topNews.innerHTML = html;
     };
 
-    fetchData('general', 20).then(add_topNews);
+    fetchData('general', 10).then(add_topNews);
 
     const add_news = (category, containerId) => {
         fetchData(category, 5).then((data) => {
