@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const apiKey = "7bf196187ab82a0d7ff805f72b45fbef";
+    const apiKey = "cd5f30e57013b51f31f2585f23672ff5";
 
     const fetchData = async (category, pageSize) => {
         const url = `https://gnews.io/api/v4/top-headlines?category=${category}&pageSize=${pageSize}&lang=en&country=IN&apikey=${apiKey}`;
