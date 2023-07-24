@@ -2,15 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const apiKey = "cd5f30e57013b51f31f2585f23672ff5";
 
     const fetchData = async (category, pageSize) => {
-        try {
-            const url = `https://gnews.io/api/v4/top-headlines?category=${category}&pageSize=${pageSize}&lang=en&country=IN&apikey=${apiKey}`;
-            const data = await fetch(url);
-            const response = await data.json();
-            return response.articles;
-        } catch (error) {
-            console.error(`Error fetching ${category} news:`, error);
-            return [];
-        }
+        const url = `https://gnews.io/api/v4/top-headlines?category=${category}&pageSize=${pageSize}&lang=en&country=IN&apikey=${apiKey}`;
+        const data = await fetch(url);
+        const response = await data.json();
+        return response.articles;
     };
 
     const add_breakingNews = (data) => {
@@ -32,22 +27,22 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach((element) => {
             const title = element.title.length < 100 ? element.title : element.title.slice(0, 100) + "...";
             html += `
-                <div class="news">
-                    <div class="img">
-                        <img src="${element.image}" alt="image">
-                    </div>
-                    <div class="text">
-                        <div class="title">
-                            <a href="${element.url}" target="_blank"><p>${title}</p></a>
-                        </div>
-                    </div>
-                </div>
-            `;
+          <div class="news">
+            <div class="img">
+              <img src="${element.image}" alt="image">
+            </div>
+            <div class="text">
+              <div class="title">
+                <a href="${element.url}" target="_blank"><p>${title}</p></a>
+              </div>
+            </div>
+          </div>
+        `;
         });
         topNews.innerHTML = html;
     };
 
-    fetchData('general', 10).then(add_topNews);
+    fetchData('general', 20).then(add_topNews);
 
     const add_news = (category, containerId) => {
         fetchData(category, 5).then((data) => {
@@ -57,17 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
             data.forEach((element) => {
                 const title = element.title.length < 100 ? element.title : element.title.slice(0, 100) + "...";
                 html += `
-                    <div class="newsCard">
-                        <div class="img">
-                            <img src="${element.image}" alt="image">
-                        </div>
-                        <div class="text">
-                            <div class="title">
-                                <a href="${element.url}" target="_blank"><p>${title}</p></a>
-                            </div>
-                        </div>
-                    </div>
-                `;
+            <div class="newsCard">
+              <div class="img">
+                <img src="${element.image}" alt="image">
+              </div>
+              <div class="text">
+                <div class="title">
+                  <a href="${element.url}" target="_blank"><p>${title}</p></a>
+                </div>
+              </div>
+            </div>
+          `;
             });
             newsBox.innerHTML = html;
         });
