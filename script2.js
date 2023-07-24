@@ -7,7 +7,7 @@ let businessNews = document.querySelector('#businessNews .newsBox')
 let techNews = document.querySelector('#techNews .newsBox')
 
 document.addEventListener('DOMContentLoaded', () => {
-    const apiKey = "f64408f437b76118ddc8a7a4202e2ef2";
+    const apiKey = "57d10b25a1440c41b6dc04514987a8cb";
 
     const fetchData = async (category, pageSize) => {
         const url = `https://gnews.io/api/v4/top-headlines?category=${category}&pageSize=${pageSize}&lang=en&country=IN&apikey=${apiKey}`;
