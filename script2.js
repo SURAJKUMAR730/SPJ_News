@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await data.json();
         return response.articles;
     };
-
     const add_breakingNews = (data) => {
         const breakingImg = document.getElementById('breakingImg');
         const breakingNews_title = document.querySelector('#breakingNews .title');
